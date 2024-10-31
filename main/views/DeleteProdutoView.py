@@ -4,7 +4,7 @@ from rest_framework.response import Response
 from main.models import Produto
 
 @api_view(['DELETE'])
-def deletar_produto( id_produto, id_agricultor):
+def deletar_produto( request, id_produto, id_agricultor):
     try:
         # Tenta encontrar o produto pelo id
         produto = Produto.objects.get(id_produto=id_produto)
