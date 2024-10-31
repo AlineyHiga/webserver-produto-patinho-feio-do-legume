@@ -1,6 +1,5 @@
 # main/models.py
 from django.db import models
-from main.enum.tipoMedida import TipoMedida
 from produtoWebserver.settings import DEFAULT_FILE_STORAGE
 
 class Produto(models.Model):
@@ -12,10 +11,8 @@ class Produto(models.Model):
     id_agricultor = models.IntegerField()
     classificacao = models.DecimalField(max_digits=3, decimal_places=1)
     tipo_produto = models.CharField(max_length=100)
-    tipo_medida = models.CharField(choices=TipoMedida.choices)
-    info_nutricionais = models.TextField()
-    certificacao = models.TextField()
-    validade = models.DateField()
+    tipo_medida = models.CharField(max_length=50)
+    
     class Meta:
         app_label = 'produtoWebserver'
     def __str__(self):
