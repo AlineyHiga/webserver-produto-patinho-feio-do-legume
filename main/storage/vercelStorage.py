@@ -6,6 +6,7 @@ class VercelBlobStorage():
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.token = getattr(settings, 'VERCEL_BLOB_TOKEN', None)
+        
         if not self.token:
             raise ValueError("VERCEL_BLOB_TOKEN must be set in settings or passed to methods")
 
@@ -17,7 +18,7 @@ class VercelBlobStorage():
             options={'token': self.token}
         )
         if response.get('url'):
-            return name  # Retorna o nome do arquivo salvo
+            return response.get('url')  # Retorna o nome do arquivo salvo
         else:
             raise Exception(f"Failed to upload file to Vercel Blob Storage: {response}")
 
