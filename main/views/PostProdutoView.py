@@ -1,11 +1,11 @@
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from main.serializers import ProdutoSerializer
+from main.serializers import ProdutoSerializerPost
 
 @api_view(['POST'])
 def cadastrar_produto(request):
-    serializer = ProdutoSerializer(data=request.data)
+    serializer = ProdutoSerializerPost(data=request.data)
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
