@@ -139,7 +139,7 @@ CORS_ALLOWED_ORIGINS = config('CORS_ORIGIN_ALLOW_ALL', cast=Csv(), default="http
 VERCEL_BLOB_TOKEN = config('BLOB_READ_WRITE_TOKEN')
 VERCEL_BLOB_BASE_URL = config('VERCEL_BLOB_BASE_URL', default=None)  
 # Configurações para o CORS se precisar permitir acesso de qualquer origem (não recomendado em produção)
-#CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
 
 # Configurações de Logs (Opcional)
 LOGGING = {
